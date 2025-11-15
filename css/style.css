@@ -1,0 +1,162 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #222;
+}
+
+/* Header fixo */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #0d6efd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+#header .container {
+  height: 64px;
+}
+
+/* Logo */
+#logo {
+  color: #fff;
+  font-size: 1.25rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Menu desktop */
+#menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+#menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+#menu a:hover {
+  color: #ffe082;
+  transform: translateY(-1px);
+}
+
+/* Botão menu mobile */
+#btn-mobile {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  display: block;
+  position: relative;
+  transition: 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
+}
+
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+
+/* Espaço para o header */
+main {
+  padding-top: 80px;
+}
+
+/* Banner */
+.banner {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+}
+
+.banner-image img {
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Seções padrão */
+.section-default {
+  padding: 3rem 0;
+}
+
+/* Rodapé */
+.footer {
+  background: #0d6efd;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* ===================== */
+/*     RESPONSIVIDADE    */
+/* ===================== */
+@media (max-width: 768px) {
+
+  #btn-mobile {
+    display: block;
+  }
+
+  #menu {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #0d6efd;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+
+  #menu li {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  /* Menu ABERTO */
+  #nav.active #menu {
+    height: 300px;
+    visibility: visible;
+  }
+
+  /* Animação do sanduíche */
+  #nav.active .hamburger {
+    background: transparent;
+  }
+
+  #nav.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  #nav.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}
